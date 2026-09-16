@@ -1,27 +1,15 @@
-# 🌐 Ávora Assessoria · Landing page
+# Ávora · Demonstração de landing page
 
-Página de apresentação e captação de contatos, construída com HTML, CSS e JavaScript.
+Interface de portfólio em HTML, CSS e JavaScript, desenvolvida com apoio de IA. Inclui layout responsivo, campos com validação e feedback visual.
 
-> 🤖 Projeto construído com assistência de IA na geração e alteração do código. Guilherme é estudante de Engenharia de Software, atualmente focado em Java, e ainda está desenvolvendo autonomia de programação. As tecnologias descritas representam contato prático assistido, não domínio independente ou certificação.
+## Demonstração sem coleta
 
-## O que há no projeto
+Abra `index.html` em um navegador e use dados fictícios. O botão apenas valida os campos e mostra a confirmação da simulação: não faz requisições, não salva o formulário e não envia mensagens. Fontes visuais ainda são carregadas do Google Fonts.
 
-- Layout responsivo e estilos em CSS no próprio HTML.
-- Formulário com nome, telefone, e-mail, tipo de contrato e observação.
-- Validações no navegador e feedback de envio.
-- Integração com Google Apps Script e link de contato via WhatsApp.
+Foram removidos da versão atual o segredo embutido, a URL da implantação do Apps Script, o telefone/WhatsApp e o arquivo de domínio personalizado. A página não anuncia mais atendimento ou resultados financeiros. A remoção de `CNAME` pode exigir ajuste correspondente no provedor de hospedagem/DNS, que não foi alterado aqui.
 
-## Estrutura
+## Credencial antiga exposta
 
-- `index.html`: interface, estilos e lógica do formulário.
-- `CNAME`: configuração de domínio personalizado.
+**A chave de integração aparece no histórico Git. Invalide-a no serviço original ou desative a implantação antiga do Apps Script.** Remover o código da página não impede chamadas diretas à implantação antiga por quem já conhece seu endereço e a chave.
 
-## ⚠️ Antes de reutilizar
-
-O JavaScript contém uma constante chamada `SECRET_KEY` enviada ao endpoint do formulário. **Qualquer valor entregue ao navegador é público e não pode servir como segredo de autenticação.** Se essa chave ainda for aceita pelo serviço, ela deve ser substituída/revogada no serviço e o controle de acesso deve ser redesenhado no servidor. Apagar a constante do arquivo não resolve sua exposição anterior.
-
-Não envie dados reais pelo formulário para testar. Revise o endpoint, a privacidade, as afirmações comerciais da página, os contatos e o domínio antes de reutilizar. O portfólio apresenta a experiência técnica, não endossa promessas comerciais ou jurídicas do conteúdo original.
-
-## Experiência registrada
-
-Contato assistido com interface responsiva, formulários, JavaScript e integração entre ferramentas. A revisão documental não executou envios nem realizou auditoria completa.
+O histórico não foi reescrito nesta alteração. Antes de reativar uma coleta real, implemente o processamento no servidor com controles apropriados; nenhum segredo deve ser colocado no HTML ou JavaScript entregue ao navegador.

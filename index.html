@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Guilherme Revisão Bancária — Análise Grátis</title>
+<title>Ávora — Demonstração de landing page</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -119,18 +119,13 @@ footer strong{color:var(--text)}
 />
 
 <section class="hero">
-  <div class="badge"><span></span> Análise 100% gratuita e sem compromisso</div>
-  <h1>Seu banco pode estar te <em>cobrando a mais</em></h1>
-  <p class="subtitle">Faço uma revisão completa do seu financiamento ou empréstimo e identifico cobranças abusivas que você tem direito de recuperar — de graça.</p>
-  <div class="stats">
-    <div class="stat"><div class="stat-num">30%</div><div class="stat-lbl">Redução média nas parcelas</div></div>
-    <div class="stat"><div class="stat-num">R$ 0</div><div class="stat-lbl">Custo da análise</div></div>
-    <div class="stat"><div class="stat-num">48h</div><div class="stat-lbl">Resultado em até</div></div>
-  </div>
+  <div class="badge"><span></span> Demonstração de portfólio · sem envio de dados</div>
+  <h1>Uma interface para <em>conectar pessoas</em></h1>
+  <p class="subtitle">Exemplo de landing page responsiva com formulário. Use apenas dados fictícios: esta demonstração não envia informações nem oferece atendimento.</p>
 
   <div class="form-wrap">
-    <div class="form-title">Quero minha análise grátis</div>
-    <div class="form-sub">Preencha abaixo e entro em contato hoje mesmo</div>
+    <div class="form-title">Simular preenchimento</div>
+    <div class="form-sub">Preencha com dados fictícios para testar a interface</div>
 
     <div class="field">
       <label>Seu nome completo *</label>
@@ -170,22 +165,20 @@ footer strong{color:var(--text)}
       </div>
     </div>
 
-    <button class="btn-submit" id="btn-enviar" onclick="enviar()">Quero minha análise grátis →</button>
+    <button class="btn-submit" id="btn-enviar" onclick="enviar()">Simular preenchimento →</button>
 
     <div class="trust-line">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      Seus dados são usados apenas para entrar em contato. Não compartilhamos com terceiros.
+      Os campos são usados somente nesta página. Nenhum formulário é enviado.
     </div>
 
     <div class="msg-err" id="msg-err"></div>
 
     <div class="msg-ok" id="msg-ok">
       <div class="icon">✅</div>
-      <h3>Recebido! Entro em contato em breve.</h3>
-      <p>Pode me chamar diretamente no WhatsApp também:</p>
-      <a class="wa-btn" id="wa-link" href="https://wa.me/5511932758217" target="_blank" rel="noopener">
-        📱 Chamar no WhatsApp
-      </a>
+      <h3>Simulação concluída.</h3>
+      <p>Nenhum dado foi enviado ou salvo.</p>
+      
     </div>
   </div>
 </section>
@@ -193,21 +186,11 @@ footer strong{color:var(--text)}
 <hr class="section-divider"/>
 
 <section class="steps">
-  <h2>Como funciona</h2>
-  <p class="steps-sub">Simples, rápido e sem burocracia</p>
-  <div class="steps-grid">
-    <div class="step-card"><div class="step-num">1</div><h3>Você preenche o formulário</h3><p>Nome e WhatsApp são suficientes para eu começar a análise.</p></div>
-    <div class="step-card"><div class="step-num">2</div><h3>Eu faço a revisão</h3><p>Analiso seu contrato e identifico cobranças irregulares de Seguro Prestamista, Tarifa de Avaliação e Taxa de Cadastro.</p></div>
-    <div class="step-card"><div class="step-num">3</div><h3>Você recebe o resultado</h3><p>Mostro exatamente quanto você tem direito a recuperar e como o banco é obrigado a corrigir.</p></div>
-    <div class="step-card"><div class="step-num">4</div><h3>Zero custo pra você</h3><p>A análise é completamente gratuita. Sem letra miúda, sem pegadinha.</p></div>
-  </div>
+  <h2>Sobre esta demonstração</h2>
+  <p class="steps-sub">Layout responsivo, validação de campos e feedback visual. Sem conexão com serviços de atendimento.</p>
 </section>
 
-<footer>
-  <strong>Guilherme Januário — Analista Contratual Especializado</strong><br/>
-  Base legal: Resolução 3919 do BACEN/CMN · Arts. 39, 45 e 51 do Código de Defesa do Consumidor<br/>
-  Este serviço não representa consultoria jurídica. Os resultados podem variar conforme cada contrato.
-</footer>
+<footer><strong>Ávora · Projeto de portfólio</strong><br/>Demonstração visual. Não oferece serviços financeiros ou jurídicos.</footer>
 
 <script>
 function validarNome(){
@@ -269,94 +252,18 @@ function toggleMensagem(){
   }
 }
 
-async function enviar(){
+function enviar(){
   const errEl=document.getElementById('msg-err');
   const okEl=document.getElementById('msg-ok');
-  const btn=document.getElementById('btn-enviar');
-
   errEl.style.display='none';
   okEl.style.display='none';
-
-  if(document.getElementById('website').value) return;
-
-  const RATE_KEY='last_submit';
-  const lastSubmit=sessionStorage.getItem(RATE_KEY);
-  if(lastSubmit&&Date.now()-parseInt(lastSubmit)<60000){
-    errEl.textContent='Aguarde 1 minuto antes de enviar novamente.';
+  if(!validarNome() || !validarTel() || !validarEmail() ||
+     document.getElementById('f-tel').value.replace(/\D/g,'').length < 10){
+    errEl.textContent='Use dados fictícios e confira os campos para simular.';
     errEl.style.display='block';
     return;
   }
-
-  const timestamp=Date.now();
-  const token=btoa(`guilherme:${timestamp}`);
-  const SECRET_KEY="m8X9kL2pQ7vN5sR4tY1uA6zW";
-
-  const nome=document.getElementById('f-nome').value.trim();
-  const tel=document.getElementById('f-tel').value.trim();
-  const email=document.getElementById('f-email').value.trim();
-  const tipo=document.getElementById('f-tipo').value;
-  const msg=document.getElementById('f-msg').value.trim();
-
-  const sanitize=s=>s.replace(/[<>"'`;]/g,'').slice(0,500);
-
-  if(!validarNome()){
-    errEl.textContent='Por favor, informe seu nome completo.';
-    errEl.style.display='block';
-    return;
-  }
-  const telNum=tel.replace(/\D/g,'');
-  if(telNum.length<10){
-    errEl.textContent='Por favor, informe um WhatsApp válido.';
-    errEl.style.display='block';
-    return;
-  }
-
-  btn.disabled=true;
-  btn.textContent='Enviando...';
-
-  try{
-    const res=await fetch(
-      'https://script.google.com/macros/s/AKfycbwa4dV_LDG16xyfnQWpncurE2W7vjxXxquUUWFA4euiYf5vUDUW6XdHw75fMyHdZB3K/exec',
-      {
-        method:'POST',
-        body:JSON.stringify({
-          secret:SECRET_KEY,
-          token:token,
-          timestamp:timestamp,
-          nome:sanitize(nome),
-          telefone:tel,
-          email:sanitize(email),
-          tipo:sanitize(tipo),
-          mensagem:sanitize(msg)
-        })
-      }
-    );
-    const data=await res.json();
-    if(data.ok){
-      ['f-nome','f-tel','f-email','f-msg'].forEach(id=>document.getElementById(id).value='');
-      document.getElementById('f-tipo').selectedIndex=0;
-      document.getElementById('char-n').textContent='0';
-      document.getElementById('field-msg-wrap').classList.remove('open');
-      document.getElementById('btn-msg-toggle').classList.remove('open');
-
-      sessionStorage.setItem(RATE_KEY,Date.now().toString());
-
-      const waMsg=encodeURIComponent(`Olá Guilherme! Me chamo ${nome} e tenho interesse na análise de ${tipo}. Preenchi o formulário do site.`);
-      document.getElementById('wa-link').href=`https://wa.me/5511932758217?text=${waMsg}`;
-      okEl.style.display='block';
-      btn.style.display='none';
-    } else {
-      errEl.textContent=data.erro||'Erro ao enviar. Tente novamente.';
-      errEl.style.display='block';
-      btn.disabled=false;
-      btn.textContent='Quero minha análise grátis →';
-    }
-  } catch{
-    errEl.textContent='Erro de conexão. Tente novamente em instantes.';
-    errEl.style.display='block';
-    btn.disabled=false;
-    btn.textContent='Quero minha análise grátis →';
-  }
+  okEl.style.display='block';
 }
 </script>
 </body>
