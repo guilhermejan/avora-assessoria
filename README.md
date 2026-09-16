@@ -1,4 +1,5 @@
-# Ávora · Demonstração de landing page para leads
+# Ávora Assessoria
 
-Interface de portfólio em HTML, CSS e JavaScript, desenvolvida com apoio de IA. Inclui layout responsivo, campos com validação e feedback visual.
+Demonstração de landing page para captação de leads, com layout responsivo, formulário com validação de campos e feedback visual de preenchimento.
 
+**Tecnologias:** HTML, CSS e JavaScript.
